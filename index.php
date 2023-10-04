@@ -13,14 +13,7 @@ require 'vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable( __DIR__ );
 $dotenv->load();
 
-/* Incluir rutas */
-//Request: GET; POST, PUT, DELETE
-//Methos: getall, find, findall, store, destroy, add_img
-
-
-
 include_once './public/index.php';
 
-die( 'test' );
 
 

@@ -4,10 +4,7 @@ namespace Controller;
 
 use Helper\Data;
 use Model\User;
-use Helper\Mail;
-use Helper\BodyMail;
 use Helper\ValidData;
-use Helper\Password;
 use Helper\Response;
 use Helper\Validjwt;
 use Route\Routes;
@@ -15,7 +12,6 @@ use Route\Routes;
 class UserController
 {
     public static function register( Routes $request ) {
-
         /* Valid user */
         Validjwt::confirmAuthentication();
         $labelsIn = [ 'name', 'email', 'phone', 'password' ];

@@ -99,7 +99,7 @@ class Conection
         return $data;
     }
 
-    public static function find( String $table, array $columns, int $id ): array
+    public static function find( String $table, array $columns, int $id ):Array
     {
         $columns = implode( ", ", $columns );
         $conn = Conection::make_conection();
@@ -117,6 +117,7 @@ class Conection
                 'msg' => 'Hubo un error: ' . $e->getMessage() . ' en: ' . $e->getTrace() . ' linea: ' . $e->getLine()
             ];
         }
+        if( $data === false ) { Response::response( 400, 'Data not found' ); }
         $query = null;
         $conn = null;
         return $data;

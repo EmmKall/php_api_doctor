@@ -53,6 +53,7 @@ class Validjwt
         $esConfirmado = false;
         //Validar datos de usuario
         $result = Conection::where( 'users', 'email', $email );
+        if( sizeof( $result ) === 0 ){ Response::Response( 501, 'Internal error' ); }
         $result = $result[ 0 ];
         $email = $result->email;
         /* Validar datos de jwt */

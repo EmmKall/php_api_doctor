@@ -3,17 +3,15 @@
 namespace Model;
 
 use Database\Conection;
-use FTP\Connection;
 use Helper\BodyMail;
 use Helper\Data;
 use Helper\Mail;
-use Helper\Password;
 use Helper\Response;
 use Helper\Validjwt;
 
 class User
 {
-    private array $columnsDB = [ 'id', 'name', 'email', 'phone', 'password', 'token', 'created_at', 'updated_at' ];
+    private array $columnsDB = [ 'id', 'name', 'email', 'phone', 'password', 'type', 'token', 'created_at', 'updated_at' ];
     private string $table = 'users';
 
     public function __construct()
@@ -105,7 +103,7 @@ class User
     {
         $email = $arrData[ ':email' ];
         $row = Conection::where( $this->table, 'email', $email );
-        if( sizeof( $row ) < 1 ) { Response::response( 400, $email . 'Credentials no valid' ); }
+        if( sizeof( $row ) < 1 ) { Response::response( 400, $email . ' Credentials no valid' ); }
         $row = $row[ 0 ];
         $id = $row->id;
         $name = $row->name;
